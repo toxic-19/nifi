@@ -1194,7 +1194,7 @@
       },
       "properties" : {
         "Include Zero Record FlowFiles" : "true",
-        "Record Writer" : "#{target.writer}",
+        "Record Writer" : "#{Record Writer}",
         "Record Reader" : "e8bae7a9-d3ce-3138-8aae-4fb2017e5a01"
       },
       "propertyDescriptors" : {
@@ -1246,7 +1246,7 @@
       },
       "properties" : {
         "Include Zero Record FlowFiles" : "true",
-        "Record Writer" : "#{target.writer}",
+        "Record Writer" : "#{Record Writer}",
         "Record Reader" : "c6b3d24f-243b-35ad-8d75-96e4ac2224e7"
       },
       "propertyDescriptors" : {
@@ -1348,16 +1348,16 @@
       "name" : "GlobalSettings",
       "parameters" : [ {
         "description" : "",
+        "name" : "Record Writer",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "4b01b3b2-0fef-3b2b-8fd6-642dc2cd1a22"
+      }, {
+        "description" : "",
         "name" : "conversion.reader",
         "provided" : false,
         "sensitive" : false,
         "value" : "1"
-      }, {
-        "description" : "",
-        "name" : "target.writer",
-        "provided" : false,
-        "sensitive" : false,
-        "value" : "4b01b3b2-0fef-3b2b-8fd6-642dc2cd1a22"
       } ]
     }
   },
@@ -1365,6 +1365,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "csvToJson",
-    "timestamp" : 1765875002101
+    "timestamp" : 1765875733609
   }
 }
