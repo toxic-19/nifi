@@ -92,7 +92,7 @@
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "is_json", "unmatched" ],
+      "selectedRelationships" : [ "is_json" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
@@ -1275,7 +1275,7 @@
       "type" : "org.apache.nifi.processors.standard.ConvertRecord",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ ],
+      "autoTerminatedRelationships" : [ "unmatched" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -1299,7 +1299,7 @@
       "properties" : {
         "Routing Strategy" : "Route to Property name",
         "is_json" : "${mime.type:equals('application/json')}",
-        "is_csv" : "${mime.type:equals('text/csv')}"
+        "is_csv" : "${mime.type:equals('text/csv'):or( ${mime.type:equals('text/plain')} )}"
       },
       "propertyDescriptors" : {
         "Routing Strategy" : {
@@ -1356,7 +1356,8 @@
         "description" : "",
         "name" : "target.writer",
         "provided" : false,
-        "sensitive" : false
+        "sensitive" : false,
+        "value" : "4b01b3b2-0fef-3b2b-8fd6-642dc2cd1a22"
       } ]
     }
   },
@@ -1364,6 +1365,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "csvToJson",
-    "timestamp" : 1765870759178
+    "timestamp" : 1765872231674
   }
 }
