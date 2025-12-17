@@ -9,7 +9,7 @@
     "versionCount" : 0
   },
   "flowContents" : {
-    "comments" : "",
+    "comments" : "传入CSV文件、JSON文件，传出JSON数据",
     "componentType" : "PROCESS_GROUP",
     "connections" : [ {
       "backPressureDataSizeThreshold" : "1 GB",
@@ -101,6 +101,65 @@
         "type" : "PROCESSOR"
       },
       "zIndex" : 2
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "groupId" : "flow-contents-group",
+        "id" : "26070e83-6699-3276-aca5-8695a84fe5f3",
+        "name" : "Data Output",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "605535d3-6aaa-3920-ab15-68958ba30927",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure", "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "c13c0fbe-29c9-365f-8a2b-a904007646e0",
+        "name" : "ConvertRecord",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 8
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "c13c0fbe-29c9-365f-8a2b-a904007646e0",
+        "name" : "ConvertRecord",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "6844bcf2-01dc-30f0-b4e9-6d7b8ace2a17",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "is_excel" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "c9aa33f2-caf0-37d9-a02c-e51b83aeefbe",
+        "name" : "RouteOnAttribute",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 7
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
@@ -853,6 +912,151 @@
     }, {
       "bulletinLevel" : "WARN",
       "bundle" : {
+        "artifact" : "nifi-poi-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.6.0"
+      },
+      "comments" : "",
+      "componentType" : "CONTROLLER_SERVICE",
+      "controllerServiceApis" : [ {
+        "bundle" : {
+          "artifact" : "nifi-standard-services-api-nar",
+          "group" : "org.apache.nifi",
+          "version" : "2.6.0"
+        },
+        "type" : "org.apache.nifi.serialization.RecordReaderFactory"
+      } ],
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "ce291cb3-098d-313b-b8d1-fd336986ca92",
+      "name" : "ExcelReader",
+      "properties" : {
+        "Input File Type" : "XLSX",
+        "Row Evaluation Strategy" : "STANDARD",
+        "schema-name" : "${schema.name}",
+        "Protection Type" : "UNPROTECTED",
+        "Starting Row" : "1",
+        "schema-access-strategy" : "Use Starting Row",
+        "schema-text" : "${avro.schema}"
+      },
+      "propertyDescriptors" : {
+        "schema-reference-reader" : {
+          "displayName" : "Schema Reference Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "schema-reference-reader",
+          "sensitive" : false
+        },
+        "schema-branch" : {
+          "displayName" : "Schema Branch",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "schema-branch",
+          "sensitive" : false
+        },
+        "Required Sheets" : {
+          "displayName" : "Required Sheets",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Required Sheets",
+          "sensitive" : false
+        },
+        "Input File Type" : {
+          "displayName" : "Input File Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Input File Type",
+          "sensitive" : false
+        },
+        "Row Evaluation Strategy" : {
+          "displayName" : "Row Evaluation Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Row Evaluation Strategy",
+          "sensitive" : false
+        },
+        "Timestamp Format" : {
+          "displayName" : "Timestamp Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Timestamp Format",
+          "sensitive" : false
+        },
+        "Date Format" : {
+          "displayName" : "Date Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Date Format",
+          "sensitive" : false
+        },
+        "schema-name" : {
+          "displayName" : "Schema Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "schema-name",
+          "sensitive" : false
+        },
+        "schema-registry" : {
+          "displayName" : "Schema Registry",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "schema-registry",
+          "sensitive" : false
+        },
+        "Protection Type" : {
+          "displayName" : "Protection Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Protection Type",
+          "sensitive" : false
+        },
+        "Starting Row" : {
+          "displayName" : "Starting Row",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Starting Row",
+          "sensitive" : false
+        },
+        "Time Format" : {
+          "displayName" : "Time Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Time Format",
+          "sensitive" : false
+        },
+        "schema-access-strategy" : {
+          "displayName" : "Schema Access Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "schema-access-strategy",
+          "sensitive" : false
+        },
+        "schema-version" : {
+          "displayName" : "Schema Version",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "schema-version",
+          "sensitive" : false
+        },
+        "schema-text" : {
+          "displayName" : "Schema Text",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "schema-text",
+          "sensitive" : false
+        },
+        "Password" : {
+          "displayName" : "Password",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Password",
+          "sensitive" : true
+        }
+      },
+      "scheduledState" : "DISABLED",
+      "type" : "org.apache.nifi.excel.ExcelReader"
+    }, {
+      "bulletinLevel" : "WARN",
+      "bundle" : {
         "artifact" : "nifi-record-serialization-services-nar",
         "group" : "org.apache.nifi",
         "version" : "2.6.0"
@@ -1096,8 +1300,8 @@
       "name" : "Data Output",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 544.0,
-        "y" : -160.0
+        "x" : 1024.0,
+        "y" : -152.0
       },
       "scheduledState" : "ENABLED",
       "type" : "OUTPUT_PORT"
@@ -1189,8 +1393,8 @@
       "name" : "ConvertRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -24.0,
-        "y" : 64.0
+        "x" : 224.0,
+        "y" : 192.0
       },
       "properties" : {
         "Include Zero Record FlowFiles" : "true",
@@ -1241,13 +1445,65 @@
       "name" : "ConvertRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -32.0,
-        "y" : -520.0
+        "x" : 216.0,
+        "y" : -632.0
       },
       "properties" : {
         "Include Zero Record FlowFiles" : "true",
         "Record Writer" : "#{Record Writer}",
         "Record Reader" : "c6b3d24f-243b-35ad-8d75-96e4ac2224e7"
+      },
+      "propertyDescriptors" : {
+        "Include Zero Record FlowFiles" : {
+          "displayName" : "Include Zero Record FlowFiles",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Include Zero Record FlowFiles",
+          "sensitive" : false
+        },
+        "Record Reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Reader",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.ConvertRecord",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.6.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "c13c0fbe-29c9-365f-8a2b-a904007646e0",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "ConvertRecord",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 240.0,
+        "y" : -200.0
+      },
+      "properties" : {
+        "Include Zero Record FlowFiles" : "true",
+        "Record Writer" : "#{Record Writer}",
+        "Record Reader" : "ce291cb3-098d-313b-b8d1-fd336986ca92"
       },
       "propertyDescriptors" : {
         "Include Zero Record FlowFiles" : {
@@ -1299,6 +1555,7 @@
       "properties" : {
         "Routing Strategy" : "Route to Property name",
         "is_json" : "${mime.type:equals('application/json')}",
+        "is_excel" : "${mime.type:equals('application/zip')}",
         "is_csv" : "${mime.type:equals('text/csv'):or( ${mime.type:equals('text/plain')} )}"
       },
       "propertyDescriptors" : {
@@ -1314,6 +1571,13 @@
           "dynamic" : true,
           "identifiesControllerService" : false,
           "name" : "is_json",
+          "sensitive" : false
+        },
+        "is_excel" : {
+          "displayName" : "is_excel",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "is_excel",
           "sensitive" : false
         },
         "is_csv" : {
@@ -1365,6 +1629,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "csvToJson",
-    "timestamp" : 1765875733609
+    "timestamp" : 1765940659533
   }
 }
