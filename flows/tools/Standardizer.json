@@ -679,12 +679,12 @@
       "name" : "UpdateRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -360.0,
+        "x" : -352.0,
         "y" : -264.0
       },
       "properties" : {
         "/phone" : "${field.value:replaceAll('(\\\\d{3})\\\\d{4}(\\\\d{4})', '$1****$2')}",
-        "/create_time" : "${field.value:replace('/', '-'):append(' 00:00:00'):substring(0, 19):toDate('yyyy-MM-dd HH:mm:ss'):format('yyyy-MM-dd HH:mm:ss')}",
+        "/create_time" : "${field.value:isEmpty():ifElse(\n    field.value, \n    field.value:replace('/', '-'):append(' 00:00:00'):substring(0, 19):toDate('yyyy-MM-dd HH:mm:ss'):format('yyyy-MM-dd HH:mm:ss')\n)}",
         "Record Writer" : "597830cd-2adf-37c8-8475-6513f913c37b",
         "Record Reader" : "d58db16f-3083-3f89-869d-994891ba0a81",
         "/gender" : "${field.value:replace('Male', 'M')}",
@@ -763,6 +763,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "Standardizer",
-    "timestamp" : 1766047487216
+    "timestamp" : 1766047798550
   }
 }
