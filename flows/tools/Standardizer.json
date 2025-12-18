@@ -1,5 +1,10 @@
 {
-  "externalControllerServices" : { },
+  "externalControllerServices" : {
+    "4700be9f-8b6d-3452-b1a1-88bf1c7c18dd" : {
+      "identifier" : "4700be9f-8b6d-3452-b1a1-88bf1c7c18dd",
+      "name" : "AvroSchemaRegistry"
+    }
+  },
   "flow" : {
     "createdTimestamp" : 1766044718692,
     "description" : "",
@@ -17,45 +22,74 @@
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
-        "comments" : "",
+        "comments" : "原理是将 FlowFile 中的数据临时映射成一张“虚拟表”，然后对这张表执行查询，查询的结果会被写入成一个新的 FlowFile。它不会原地修改原始数据。",
         "groupId" : "flow-contents-group",
-        "id" : "301c938a-019b-1000-44a1-53d048da0984",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
+        "id" : "301c9387-019b-1000-dbda-5cc521e9e94c",
+        "name" : "QueryRecord",
+        "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "5ed9cb24-fd67-3fec-a8f6-d31d3894275a",
+      "identifier" : "18288721-3832-332d-86ac-6d6ff1f1f740",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "original" ],
+      "selectedRelationships" : [ "success" ],
       "source" : {
-        "comments" : "原理是将 FlowFile 中的数据临时映射成一张“虚拟表”，然后对这张表执行查询，查询的结果会被写入成一个新的 FlowFile。它不会原地修改原始数据。",
+        "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "301c9387-019b-1000-dbda-5cc521e9e94c",
-        "name" : "QueryRecord",
+        "id" : "ae935c11-1158-37de-93d2-49c2ff225cc6",
+        "name" : "UpdateRecord",
         "type" : "PROCESSOR"
       },
-      "zIndex" : 3
+      "zIndex" : 6
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
-        "comments" : "原理是将 FlowFile 中的数据临时映射成一张“虚拟表”，然后对这张表执行查询，查询的结果会被写入成一个新的 FlowFile。它不会原地修改原始数据。",
         "groupId" : "flow-contents-group",
-        "id" : "301c9387-019b-1000-dbda-5cc521e9e94c",
-        "name" : "QueryRecord",
+        "id" : "11973eb6-990b-3447-9cdc-bc63d9fae3bd",
+        "name" : "Out_Failure",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "4264c22b-986c-32ed-a2d4-65fb4fa9805c",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ae935c11-1158-37de-93d2-49c2ff225cc6",
+        "name" : "UpdateRecord",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 9
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ae935c11-1158-37de-93d2-49c2ff225cc6",
+        "name" : "UpdateRecord",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "7b361e2a-78d3-32e9-8884-d1e44e229b55",
+      "identifier" : "b50ba215-3a07-3bb6-94f8-e7ea91cee619",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -70,7 +104,7 @@
         "name" : "JsonInput",
         "type" : "INPUT_PORT"
       },
-      "zIndex" : 1
+      "zIndex" : 5
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
@@ -84,37 +118,7 @@
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "b46580b1-5afc-32c4-98df-4a36dff1c2e6",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "failure", "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "ae935c11-1158-37de-93d2-49c2ff225cc6",
-        "name" : "UpdateRecord",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 4
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "ae935c11-1158-37de-93d2-49c2ff225cc6",
-        "name" : "UpdateRecord",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "bcc8952a-959b-3af8-b1d4-d30996ec33e9",
+      "identifier" : "cd376a5e-9d55-3219-93f0-467f11ab9a1e",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -129,51 +133,38 @@
         "name" : "QueryRecord",
         "type" : "PROCESSOR"
       },
-      "zIndex" : 2
+      "zIndex" : 8
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "groupId" : "flow-contents-group",
+        "id" : "11973eb6-990b-3447-9cdc-bc63d9fae3bd",
+        "name" : "Out_Failure",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "d0ea1e69-994e-397c-9344-e5753d7968ed",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "原理是将 FlowFile 中的数据临时映射成一张“虚拟表”，然后对这张表执行查询，查询的结果会被写入成一个新的 FlowFile。它不会原地修改原始数据。",
+        "groupId" : "flow-contents-group",
+        "id" : "301c9387-019b-1000-dbda-5cc521e9e94c",
+        "name" : "QueryRecord",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 10
     } ],
     "controllerServices" : [ {
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-registry-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.6.0"
-      },
-      "comments" : "",
-      "componentType" : "CONTROLLER_SERVICE",
-      "controllerServiceApis" : [ {
-        "bundle" : {
-          "artifact" : "nifi-standard-services-api-nar",
-          "group" : "org.apache.nifi",
-          "version" : "2.6.0"
-        },
-        "type" : "org.apache.nifi.schemaregistry.services.SchemaRegistry"
-      } ],
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "31291c0b-f30c-3fd4-be36-9b5f5236709e",
-      "name" : "AvroSchemaRegistry",
-      "properties" : {
-        "avro-reg-validated-field-names" : "true",
-        "user_record_schema" : "{\n  \"type\": \"record\",\n  \"name\": \"UserRecord\",\n  \"fields\": [\n    { \"name\": \"id\", \"type\": \"int\" },\n    { \"name\": \"name\", \"type\": \"string\" },\n    { \"name\": \"age\", \"type\": \"int\" },\n    { \"name\": \"gender\", \"type\": \"string\" },\n    { \"name\": \"create_time\", \"type\": [\"null\", \"string\"] },\n    { \"name\": \"account_balance\", \"type\": [\"null\", \"double\"] },\n    { \"name\": \"category\", \"type\": [\"null\", \"string\"] },\n    { \"name\": \"phone\", \"type\": [\"null\", \"string\"] },\n    { \"name\": \"email\", \"type\": [\"null\", \"string\"] }\n  ]\n}"
-      },
-      "propertyDescriptors" : {
-        "avro-reg-validated-field-names" : {
-          "displayName" : "Validate Field Names",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "avro-reg-validated-field-names",
-          "sensitive" : false
-        },
-        "user_record_schema" : {
-          "displayName" : "user_record_schema",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "user_record_schema",
-          "sensitive" : false
-        }
-      },
-      "scheduledState" : "DISABLED",
-      "type" : "org.apache.nifi.schemaregistry.services.AvroSchemaRegistry"
-    }, {
       "bulletinLevel" : "WARN",
       "bundle" : {
         "artifact" : "nifi-record-serialization-services-nar",
@@ -367,7 +358,7 @@
         "schema-application-strategy" : "SELECTED_PART",
         "schema-name" : "user_record_schema",
         "starting-field-strategy" : "ROOT_NODE",
-        "schema-registry" : "31291c0b-f30c-3fd4-be36-9b5f5236709e",
+        "schema-registry" : "4700be9f-8b6d-3452-b1a1-88bf1c7c18dd",
         "schema-access-strategy" : "schema-name",
         "schema-text" : "${avro.schema}",
         "Allow Comments" : "false"
@@ -493,18 +484,15 @@
     "defaultBackPressureObjectThreshold" : 10000,
     "defaultFlowFileExpiration" : "0 sec",
     "executionEngine" : "INHERITED",
-    "externalControllerServiceReferences" : { },
+    "externalControllerServiceReferences" : {
+      "4700be9f-8b6d-3452-b1a1-88bf1c7c18dd" : {
+        "identifier" : "4700be9f-8b6d-3452-b1a1-88bf1c7c18dd",
+        "name" : "AvroSchemaRegistry"
+      }
+    },
     "flowFileConcurrency" : "UNBOUNDED",
     "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
-    "funnels" : [ {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "301c938a-019b-1000-44a1-53d048da0984",
-      "position" : {
-        "x" : -536.0,
-        "y" : 280.0
-      }
-    } ],
+    "funnels" : [ ],
     "identifier" : "flow-contents-group",
     "inputPorts" : [ {
       "allowRemoteAccess" : false,
@@ -529,8 +517,8 @@
       "identifier" : "80e3ff01-98cc-3f33-9a2b-d9ffa1c44193",
       "label" : "数据转换\n1、email和phone的保密\n2、性别标准化\n3、时间标准化，统一输出为 yyyy-MM-dd HH:mm:ss",
       "position" : {
-        "x" : 136.0,
-        "y" : -80.0
+        "x" : -224.0,
+        "y" : -344.0
       },
       "style" : {
         "font-size" : "12px"
@@ -544,8 +532,8 @@
       "identifier" : "9aa1dfb7-58b9-3f0d-964d-573d11fef323",
       "label" : "过滤不正常的值",
       "position" : {
-        "x" : -504.0,
-        "y" : -24.0
+        "x" : -152.0,
+        "y" : 112.0
       },
       "style" : {
         "font-size" : "12px"
@@ -560,12 +548,26 @@
       "componentType" : "OUTPUT_PORT",
       "concurrentlySchedulableTaskCount" : 1,
       "groupIdentifier" : "flow-contents-group",
+      "identifier" : "11973eb6-990b-3447-9cdc-bc63d9fae3bd",
+      "name" : "Out_Failure",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : -808.0,
+        "y" : 24.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "OUTPUT_PORT"
+    }, {
+      "allowRemoteAccess" : false,
+      "componentType" : "OUTPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
       "identifier" : "301c9389-019b-1000-06d2-fdc89b0854ec",
       "name" : "output",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 816.0,
-        "y" : 40.0
+        "x" : 472.0,
+        "y" : 192.0
       },
       "scheduledState" : "ENABLED",
       "type" : "OUTPUT_PORT"
@@ -576,7 +578,7 @@
     },
     "processGroups" : [ ],
     "processors" : [ {
-      "autoTerminatedRelationships" : [ "failure" ],
+      "autoTerminatedRelationships" : [ "original" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -594,8 +596,8 @@
       "name" : "QueryRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -688.0,
-        "y" : 8.0
+        "x" : -352.0,
+        "y" : 144.0
       },
       "properties" : {
         "dbf-default-precision" : "10",
@@ -677,8 +679,8 @@
       "name" : "UpdateRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 0.0,
-        "y" : 0.0
+        "x" : -360.0,
+        "y" : -264.0
       },
       "properties" : {
         "/phone" : "${field.value:replaceAll('(\\\\d{3})\\\\d{4}(\\\\d{4})', '$1****$2')}",
@@ -761,6 +763,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "Standardizer",
-    "timestamp" : 1766045730758
+    "timestamp" : 1766047487216
   }
 }
