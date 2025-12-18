@@ -525,17 +525,17 @@
     "labels" : [ {
       "componentType" : "LABEL",
       "groupIdentifier" : "flow-contents-group",
-      "height" : 150.0,
+      "height" : 104.0,
       "identifier" : "80e3ff01-98cc-3f33-9a2b-d9ffa1c44193",
-      "label" : "数据转换\n1、email和phone的保密\n2、性别标准化",
+      "label" : "数据转换\n1、email和phone的保密\n2、性别标准化\n3、时间标准化，统一输出为 yyyy-MM-dd HH:mm:ss",
       "position" : {
-        "x" : 192.0,
-        "y" : -56.0
+        "x" : 136.0,
+        "y" : -80.0
       },
       "style" : {
         "font-size" : "12px"
       },
-      "width" : 150.0,
+      "width" : 208.0,
       "zIndex" : 2
     }, {
       "componentType" : "LABEL",
@@ -682,6 +682,7 @@
       },
       "properties" : {
         "/phone" : "${field.value:replaceAll('(\\\\d{3})\\\\d{4}(\\\\d{4})', '$1****$2')}",
+        "/create_time" : "${field.value:replace('/', '-'):append(' 00:00:00'):substring(0, 19):toDate('yyyy-MM-dd HH:mm:ss'):format('yyyy-MM-dd HH:mm:ss')}",
         "Record Writer" : "597830cd-2adf-37c8-8475-6513f913c37b",
         "Record Reader" : "d58db16f-3083-3f89-869d-994891ba0a81",
         "/gender" : "${field.value:replace('Male', 'M')}",
@@ -694,6 +695,13 @@
           "dynamic" : true,
           "identifiesControllerService" : false,
           "name" : "/phone",
+          "sensitive" : false
+        },
+        "/create_time" : {
+          "displayName" : "/create_time",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/create_time",
           "sensitive" : false
         },
         "Record Writer" : {
@@ -753,6 +761,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "Standardizer",
-    "timestamp" : 1766044719668
+    "timestamp" : 1766045730758
   }
 }
