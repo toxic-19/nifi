@@ -47,6 +47,35 @@
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
+        "groupId" : "flow-contents-group",
+        "id" : "26070e83-6699-3276-aca5-8695a84fe5f3",
+        "name" : "Data Output",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "3d3d41ab-e114-34c4-bbb9-3742d210af8e",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure", "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "6714c9af-5d3d-3656-94b1-f2a98463c470",
+        "name" : "ConvertRecord",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 15
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "6714c9af-5d3d-3656-94b1-f2a98463c470",
@@ -166,6 +195,35 @@
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
+        "groupId" : "flow-contents-group",
+        "id" : "26070e83-6699-3276-aca5-8695a84fe5f3",
+        "name" : "Data Output",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "b2fd3bef-c411-3b44-b0a9-3ac52e768196",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure", "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "bc976ab2-a201-3993-be1c-5d9f4dd4857f",
+        "name" : "ConvertRecord",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 13
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "32ca83c5-5649-3310-b6aa-221edc31a6bd",
@@ -195,58 +253,30 @@
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
+        "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "26070e83-6699-3276-aca5-8695a84fe5f3",
-        "name" : "Data Output",
-        "type" : "OUTPUT_PORT"
+        "id" : "9b8715ef-12f5-36b1-9794-f5f2efedf65a",
+        "name" : "Funnel",
+        "type" : "FUNNEL"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "c48432bc-2e23-306f-a863-28d036ebd43c",
+      "identifier" : "bff2cf3d-62b9-3d04-9a6a-8e2f4fc21f5d",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "failure", "success" ],
+      "selectedRelationships" : [ "unmatched" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "bc976ab2-a201-3993-be1c-5d9f4dd4857f",
-        "name" : "ConvertRecord",
+        "id" : "c9aa33f2-caf0-37d9-a02c-e51b83aeefbe",
+        "name" : "RouteOnAttribute",
         "type" : "PROCESSOR"
       },
-      "zIndex" : 3
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "groupId" : "flow-contents-group",
-        "id" : "26070e83-6699-3276-aca5-8695a84fe5f3",
-        "name" : "Data Output",
-        "type" : "OUTPUT_PORT"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "cfed2416-dca2-3200-bc90-afdbac2ed7fb",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "failure", "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "6714c9af-5d3d-3656-94b1-f2a98463c470",
-        "name" : "ConvertRecord",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 4
+      "zIndex" : 14
     } ],
     "controllerServices" : [ {
       "bulletinLevel" : "WARN",
@@ -1271,7 +1301,15 @@
     "externalControllerServiceReferences" : { },
     "flowFileConcurrency" : "UNBOUNDED",
     "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
-    "funnels" : [ ],
+    "funnels" : [ {
+      "componentType" : "FUNNEL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "9b8715ef-12f5-36b1-9794-f5f2efedf65a",
+      "position" : {
+        "x" : -419.5878218789212,
+        "y" : 370.3738977494101
+      }
+    } ],
     "identifier" : "flow-contents-group",
     "inputPorts" : [ {
       "allowRemoteAccess" : false,
@@ -1300,7 +1338,7 @@
       "name" : "Data Output",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 1024.0,
+        "x" : 1280.0,
         "y" : -152.0
       },
       "scheduledState" : "ENABLED",
@@ -1393,8 +1431,8 @@
       "name" : "ConvertRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 224.0,
-        "y" : 192.0
+        "x" : 352.0,
+        "y" : 200.0
       },
       "properties" : {
         "Include Zero Record FlowFiles" : "true",
@@ -1445,8 +1483,8 @@
       "name" : "ConvertRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 216.0,
-        "y" : -632.0
+        "x" : 384.0,
+        "y" : -648.0
       },
       "properties" : {
         "Include Zero Record FlowFiles" : "true",
@@ -1497,8 +1535,8 @@
       "name" : "ConvertRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 240.0,
-        "y" : -200.0
+        "x" : 360.0,
+        "y" : -216.0
       },
       "properties" : {
         "Include Zero Record FlowFiles" : "true",
@@ -1531,7 +1569,7 @@
       "type" : "org.apache.nifi.processors.standard.ConvertRecord",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "unmatched" ],
+      "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -1554,9 +1592,9 @@
       },
       "properties" : {
         "Routing Strategy" : "Route to Property name",
-        "is_json" : "${mime.type:equals('application/json')}",
+        "is_json" : "${http.headers.Content-Type:equals('application/json')}",
         "is_excel" : "${mime.type:equals('application/zip')}",
-        "is_csv" : "${mime.type:equals('text/csv'):or( ${mime.type:equals('text/plain')} )}"
+        "is_csv" : "${mime.type:equals('text/csv')}"
       },
       "propertyDescriptors" : {
         "Routing Strategy" : {
@@ -1612,6 +1650,18 @@
       "name" : "GlobalSettings",
       "parameters" : [ {
         "description" : "",
+        "name" : "JSON Record Reader",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "2f799466-019b-1000-0829-8843392935a1"
+      }, {
+        "description" : "",
+        "name" : "JSON Record Writer",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "f8dcf290-ca48-365d-8d0a-61a321e743b4"
+      }, {
+        "description" : "",
         "name" : "Record Writer",
         "provided" : false,
         "sensitive" : false,
@@ -1629,6 +1679,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "csvToJson",
-    "timestamp" : 1765940659533
+    "timestamp" : 1766044622198
   }
 }
