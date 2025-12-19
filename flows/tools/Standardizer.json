@@ -22,36 +22,6 @@
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
-        "comments" : "原理是将 FlowFile 中的数据临时映射成一张“虚拟表”，然后对这张表执行查询，查询的结果会被写入成一个新的 FlowFile。它不会原地修改原始数据。",
-        "groupId" : "flow-contents-group",
-        "id" : "301c9387-019b-1000-dbda-5cc521e9e94c",
-        "name" : "QueryRecord",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "18288721-3832-332d-86ac-6d6ff1f1f740",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "ae935c11-1158-37de-93d2-49c2ff225cc6",
-        "name" : "UpdateRecord",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 6
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
         "groupId" : "flow-contents-group",
         "id" : "11973eb6-990b-3447-9cdc-bc63d9fae3bd",
         "name" : "Out_Failure",
@@ -81,15 +51,75 @@
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
+        "comments" : "原理是将 FlowFile 中的数据临时映射成一张“虚拟表”，然后对这张表执行查询，查询的结果会被写入成一个新的 FlowFile。它不会原地修改原始数据。",
+        "groupId" : "flow-contents-group",
+        "id" : "301c9387-019b-1000-dbda-5cc521e9e94c",
+        "name" : "QueryRecord",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "84ea4059-ab4a-3cfa-9713-def852fd9f04",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure", "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "65945192-c26c-3c2f-a0c2-d14c468b12cf",
+        "name" : "ScriptedTransformRecord",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 12
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "65945192-c26c-3c2f-a0c2-d14c468b12cf",
+        "name" : "ScriptedTransformRecord",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "aea08b7c-03f5-3fe0-80c2-8130cba41869",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure", "success" ],
+      "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "ae935c11-1158-37de-93d2-49c2ff225cc6",
         "name" : "UpdateRecord",
         "type" : "PROCESSOR"
       },
+      "zIndex" : 11
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "1925ec14-9504-3d5d-b748-648bdf31e599",
+        "name" : "备份数据",
+        "type" : "PROCESSOR"
+      },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "b50ba215-3a07-3bb6-94f8-e7ea91cee619",
+      "identifier" : "bae2e422-a0ba-3329-9590-a01dc2e37bb2",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -104,7 +134,7 @@
         "name" : "JsonInput",
         "type" : "INPUT_PORT"
       },
-      "zIndex" : 5
+      "zIndex" : 13
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
@@ -163,6 +193,36 @@
         "type" : "PROCESSOR"
       },
       "zIndex" : 10
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ae935c11-1158-37de-93d2-49c2ff225cc6",
+        "name" : "UpdateRecord",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "d335ede9-6078-3777-b9e3-aca7cbedec79",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure", "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "1925ec14-9504-3d5d-b748-648bdf31e599",
+        "name" : "备份数据",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 14
     } ],
     "controllerServices" : [ {
       "bulletinLevel" : "WARN",
@@ -513,6 +573,21 @@
     "labels" : [ {
       "componentType" : "LABEL",
       "groupIdentifier" : "flow-contents-group",
+      "height" : 88.0,
+      "identifier" : "5ada7809-0afa-36e4-b62b-c5c1e2ed50b1",
+      "label" : "Record Path Value\n1. 当你设置属性 /original_gender 的值为 /gender 时。\n2. NiFi 会去读 gender 字段的数据。\n3. 然后把它写入 original_gender 字段。",
+      "position" : {
+        "x" : -648.0,
+        "y" : -632.0
+      },
+      "style" : {
+        "font-size" : "12px"
+      },
+      "width" : 336.0,
+      "zIndex" : 3
+    }, {
+      "componentType" : "LABEL",
+      "groupIdentifier" : "flow-contents-group",
       "height" : 104.0,
       "identifier" : "80e3ff01-98cc-3f33-9a2b-d9ffa1c44193",
       "label" : "数据转换\n1、email和phone的保密\n2、性别标准化\n3、时间标准化，统一输出为 yyyy-MM-dd HH:mm:ss",
@@ -566,8 +641,8 @@
       "name" : "output",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 472.0,
-        "y" : 192.0
+        "x" : -296.0,
+        "y" : 496.0
       },
       "scheduledState" : "ENABLED",
       "type" : "OUTPUT_PORT"
@@ -578,6 +653,97 @@
     },
     "processGroups" : [ ],
     "processors" : [ {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.6.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "1925ec14-9504-3d5d-b748-648bdf31e599",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "备份数据",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -648.0,
+        "y" : -560.0
+      },
+      "properties" : {
+        "/original_phone" : "/phone",
+        "/original_gender" : "/gender",
+        "/original_email" : "/email",
+        "Record Writer" : "597830cd-2adf-37c8-8475-6513f913c37b",
+        "Record Reader" : "d58db16f-3083-3f89-869d-994891ba0a81",
+        "/original_create_time" : "/create_time",
+        "Replacement Value Strategy" : "record-path-value"
+      },
+      "propertyDescriptors" : {
+        "/original_phone" : {
+          "displayName" : "/original_phone",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/original_phone",
+          "sensitive" : false
+        },
+        "/original_gender" : {
+          "displayName" : "/original_gender",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/original_gender",
+          "sensitive" : false
+        },
+        "/original_email" : {
+          "displayName" : "/original_email",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/original_email",
+          "sensitive" : false
+        },
+        "Record Writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Writer",
+          "sensitive" : false
+        },
+        "Record Reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Reader",
+          "sensitive" : false
+        },
+        "/original_create_time" : {
+          "displayName" : "/original_create_time",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/original_create_time",
+          "sensitive" : false
+        },
+        "Replacement Value Strategy" : {
+          "displayName" : "Replacement Value Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Replacement Value Strategy",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.UpdateRecord",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ "original" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -605,7 +771,7 @@
         "record-reader" : "d58db16f-3083-3f89-869d-994891ba0a81",
         "include-zero-record-flowfiles" : "true",
         "dbf-default-scale" : "0",
-        "filter_and_calc" : "SELECT * FROM FLOWFILE WHERE age > 0 AND age < 150 AND account_balance >= 0"
+        "filter_and_calc" : "SELECT * FROM FLOWFILE\nWHERE age > 0 AND age < 150\n  AND account_balance >= 0\n  AND gender IN ('M', 'F')"
       },
       "propertyDescriptors" : {
         "dbf-default-precision" : {
@@ -665,6 +831,95 @@
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
+        "artifact" : "nifi-scripting-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.6.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "65945192-c26c-3c2f-a0c2-d14c468b12cf",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "ScriptedTransformRecord",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 272.0,
+        "y" : -96.0
+      },
+      "properties" : {
+        "Script Engine" : "Groovy",
+        "Script Body" : "import java.text.SimpleDateFormat\nimport java.util.Date\n\n// 定义目标格式\ndef targetFormat = new SimpleDateFormat(\"yyyy-MM-dd HH:mm:ss\")\n\n// 定义可能出现的文本日期格式 (可以按需添加更多)\ndef sourceFormats = [\n    \"yyyy/M/d HH:mm:ss\",\n    \"yyyy/M/d HH:mm\",\n    \"yyyy/M/d\",\n    \"yyyy-MM-dd HH:mm:ss\",\n    \"yyyy-MM-dd\"\n]\n\n// 获取当前记录中的 create_time 字段值\ndef rawValue = record.getValue(\"create_time\")\n\n// 如果值为空，不做处理，直接返回\nif (rawValue == null || rawValue.toString().trim().isEmpty()) {\n    return record\n}\n\ndef resultDate = null\ndef strValue = rawValue.toString()\n\n// --- 逻辑分支 1: 如果是数字 (Excel 时间戳) ---\n// 判断是否为纯数字\nif (strValue.matches(\"^\\\\d+\\$\")) {\n    try {\n        // 将字符串转为 Long，再转为 Date 对象\n        long millis = Long.parseLong(strValue)\n        resultDate = new Date(millis)\n    } catch (Exception e) {\n        // 转换失败忽略\n    }\n} \n// --- 逻辑分支 2: 如果是文本 (CSV 时间字符串) ---\nelse {\n    // 遍历所有可能的格式，尝试解析\n    for (String fmt : sourceFormats) {\n        try {\n            def parser = new SimpleDateFormat(fmt)\n            // 设为非宽松模式，避免把非法日期强行转换\n            parser.setLenient(false) \n            resultDate = parser.parse(strValue)\n            // 如果成功解析，直接跳出循环\n            break \n        } catch (Exception e) {\n            // 解析失败，继续尝试下一个格式\n        }\n    }\n}\n\n// --- 结果写入 ---\nif (resultDate != null) {\n    // 格式化为标准字符串\n    def finalString = targetFormat.format(resultDate)\n    // 更新记录中的字段\n    record.setValue(\"create_time\", finalString)\n} else {\n    // 可选：如果无法解析，你可以选择保留原值，或者记录日志\n    // log.warn(\"无法解析日期: \" + strValue)\n}\n\n// 返回修改后的记录\nreturn record",
+        "Record Writer" : "597830cd-2adf-37c8-8475-6513f913c37b",
+        "Record Reader" : "d58db16f-3083-3f89-869d-994891ba0a81"
+      },
+      "propertyDescriptors" : {
+        "Script File" : {
+          "displayName" : "Script File",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Script File",
+          "resourceDefinition" : {
+            "cardinality" : "SINGLE",
+            "resourceTypes" : [ "FILE" ]
+          },
+          "sensitive" : false
+        },
+        "Script Engine" : {
+          "displayName" : "Script Language",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Script Engine",
+          "sensitive" : false
+        },
+        "Script Body" : {
+          "displayName" : "Script Body",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Script Body",
+          "sensitive" : false
+        },
+        "Record Writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Writer",
+          "sensitive" : false
+        },
+        "Record Reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Reader",
+          "sensitive" : false
+        },
+        "Module Directory" : {
+          "displayName" : "Module Directory",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Module Directory",
+          "resourceDefinition" : {
+            "cardinality" : "MULTIPLE",
+            "resourceTypes" : [ "DIRECTORY", "FILE" ]
+          },
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.script.ScriptedTransformRecord",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
         "version" : "2.6.0"
@@ -684,7 +939,6 @@
       },
       "properties" : {
         "/phone" : "${field.value:replaceAll('(\\\\d{3})\\\\d{4}(\\\\d{4})', '$1****$2')}",
-        "/create_time" : "${field.value:isEmpty():ifElse(\n    field.value, \n    field.value:replace('/', '-'):append(' 00:00:00'):substring(0, 19):toDate('yyyy-MM-dd HH:mm:ss'):format('yyyy-MM-dd HH:mm:ss')\n)}",
         "Record Writer" : "597830cd-2adf-37c8-8475-6513f913c37b",
         "Record Reader" : "d58db16f-3083-3f89-869d-994891ba0a81",
         "/gender" : "${field.value:replace('Male', 'M')}",
@@ -697,13 +951,6 @@
           "dynamic" : true,
           "identifiesControllerService" : false,
           "name" : "/phone",
-          "sensitive" : false
-        },
-        "/create_time" : {
-          "displayName" : "/create_time",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/create_time",
           "sensitive" : false
         },
         "Record Writer" : {
@@ -763,6 +1010,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "Standardizer",
-    "timestamp" : 1766047798550
+    "timestamp" : 1766112503609
   }
 }
