@@ -1306,8 +1306,8 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "9b8715ef-12f5-36b1-9794-f5f2efedf65a",
       "position" : {
-        "x" : -419.5878218789212,
-        "y" : 370.3738977494101
+        "x" : -432.0,
+        "y" : 184.0
       }
     } ],
     "identifier" : "flow-contents-group",
@@ -1594,7 +1594,7 @@
         "Routing Strategy" : "Route to Property name",
         "is_json" : "${http.headers.Content-Type:equals('application/json')}",
         "is_excel" : "${mime.type:equals('application/zip')}",
-        "is_csv" : "${mime.type:equals('text/csv')}"
+        "is_csv" : "${http.headers.Content-Type:equals('text/csv')}"
       },
       "propertyDescriptors" : {
         "Routing Strategy" : {
@@ -1659,7 +1659,7 @@
         "name" : "JSON Record Writer",
         "provided" : false,
         "sensitive" : false,
-        "value" : "f8dcf290-ca48-365d-8d0a-61a321e743b4"
+        "value" : "2f7c7fbc-019b-1000-a371-5e1338255d73"
       }, {
         "description" : "",
         "name" : "Record Writer",
@@ -1679,6 +1679,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "csvToJson",
-    "timestamp" : 1766044622198
+    "timestamp" : 1766112465463
   }
 }
